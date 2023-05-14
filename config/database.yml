@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: llbc_production
-  username: llbc
-  password: <%= ENV["LLBC_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+  # database: llbc_production
+  # username: llbc
+  # password: <%= ENV["LLBC_DATABASE_PASSWORD"] %>
