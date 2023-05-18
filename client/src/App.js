@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import {HashRouter, Routes} from "react-router-dom"
+import {HashRouter} from "react-router-dom"
+import {Routes, Route} from "react-router"
 
 import Header from "./components/Header";
 import BowContainer from "./components/BowContainers";
+import AdminPage from "./components/AdminPage";
 
 function App() {
   
@@ -11,9 +13,10 @@ function App() {
     <HashRouter>
       <Header />
       <h1>Hello world</h1>
-      <BowContainer />
+
       <Routes>
-      
+        <Route path="/admin_page" element={<AdminPage />} />
+        <Route exact path="/" element={<BowContainer />} />
       </Routes>
     </HashRouter>
   );
