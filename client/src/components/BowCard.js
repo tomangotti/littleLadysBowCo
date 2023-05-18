@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BowCard({bow}){
+    const navigate = useNavigate()
+    
 
     function handleClick(){
-
+        navigate(`/bows/${bow.id}`)
     }
 
-    
+
     return(
     <div className="bowCard" onClick={handleClick}>
         <img src={bow.photo}/>

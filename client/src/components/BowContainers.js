@@ -26,7 +26,7 @@ function BowContainer(){
     })
 
     return(<>
-        <div className="bowContainer">
+        <div className="">
             {bowList}
         </div>
     </>)
