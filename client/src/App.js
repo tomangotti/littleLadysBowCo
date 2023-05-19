@@ -13,7 +13,7 @@ function App() {
   return (
     <HashRouter>
       <Header />
-      <h1>Hello world</h1>
+      
 
       <Routes>
         <Route path="/admin_page" element={<AdminPage />} />

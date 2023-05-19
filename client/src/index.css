@@ -5,7 +5,7 @@
 /* html */
 
 html {
-  background-color: rgb(169, 230, 154);
+  background-color: rgb(154, 200, 230);
 }
 
 
@@ -20,13 +20,11 @@ html {
   border-radius: 5px;
   box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.4);
   background-color: rgb(255, 240, 248);
-  width:30%;
-  min-width: 250px;
+  width:250px;
   height: 300px;
   text-align: center;
   margin: 25px auto;
 }
-
 .bowCard img {
   width: 90%;
   height: 60%;
@@ -69,12 +67,38 @@ html {
   min-width: 250px;
   text-align: center;
   margin: 25px auto;
+  
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .bowPage img {
   width: 70%;
-  margin: 5px;
+  max-width: 500px;
+  margin: 25px auto 10px auto;
   border: 2px black solid;
   border-radius: 5px;
+}
+
+.bowPageData {
+  
+  margin: 15px auto;
+  padding: 5px;
+}
+
+.bowPageData h2 {
+  margin: 15px auto;
+}
+
+.bowPageData h4 {
+  margin: 3px 15px;
+}
+
+.bowPageDatah h6{
+  margin: 0px auto;
+}
+
+.bowPageData button{
+  margin: 10px auto;
 }

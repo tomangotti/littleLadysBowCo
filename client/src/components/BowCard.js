@@ -15,7 +15,7 @@ function BowCard({bow}){
         <img src={bow.photo}/>
         <h3>{bow.name}</h3>
         <h6>Price: ${bow.price}</h6>
-        {bow.quantity ? <h6>In Stock</h6> : <h6>Out of Stock</h6>}
+        {bow.quantity ? <h6>In Stock</h6> : <div><h6>Out of Stock</h6><button>request</button></div>}
     </div>)
 }
 

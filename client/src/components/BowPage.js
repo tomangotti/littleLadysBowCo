@@ -33,14 +33,13 @@ function BowPage(){
     <div className="bowPage">
         <img src={bow.photo}/>
         <div className="bowPageData">
-            <h3>{bow.name}</h3>
+            <h2>{bow.name}</h2>
             <h4>{bow.description}</h4>
             <h5>Price: ${bow.price}</h5>
             {bow.quantity ? <h6>In Stock</h6> : <h6>Out of Stock</h6>}
             <form>
                 <label>Quantity</label>
                 <select>
-                    <option value="0">0</option>
                     {maxQuantity}
                 </select><br></br>
                 <button>Add to Cart</button>
