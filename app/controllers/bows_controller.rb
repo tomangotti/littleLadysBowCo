@@ -15,7 +15,7 @@ class BowsController < ApplicationController
         render json: newBow, status: :created
     end
 
-    def updated
+    def update
         bow = Bow.find(params[:id])
         if bow.update(params_bows)
             render json: bow, status: :accepted

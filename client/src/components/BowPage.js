@@ -36,14 +36,14 @@ function BowPage(){
             <h2>{bow.name}</h2>
             <h4>{bow.description}</h4>
             <h5>Price: ${bow.price}</h5>
-            {bow.quantity ? <h6>In Stock</h6> : <h6>Out of Stock</h6>}
-            <form>
+            {bow.quantity ? <form>
                 <label>Quantity</label>
                 <select>
                     {maxQuantity}
                 </select><br></br>
                 <button>Add to Cart</button>
-            </form>
+            </form> : <div><h6>Out of Stock</h6><button>request</button></div>}
+            
         </div>
     </div>)
 }

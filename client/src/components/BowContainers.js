@@ -6,6 +6,7 @@ function BowContainer(){
     const [bows, setBows] = useState(null)
     const [filter, setFilter] = useState(null)
     const [styleOption, setStyleOption] = useState("Select")
+    
 
     // initial fetch to load bows
     useEffect(() => {
@@ -76,13 +77,10 @@ function BowContainer(){
         setStyleOption(e.target.value)
     }
 
-    function handleFilterOptions(){
-
-    }
+ 
 
     return(<>
         <div className="searchBar">
-            <button onClick={handleFilterOptions}>Filter</button>
             <div>
                 <form>
                     <label>Search: </label>

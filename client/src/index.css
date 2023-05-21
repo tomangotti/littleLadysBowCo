@@ -8,6 +8,24 @@ html {
   background-color: rgb(154, 200, 230);
 }
 
+/* HEADERS */
+/* HEADERS */
+/* HEADERS */
+/* HEADERS */
+/* HEADERS */
+/* HEADERS */
+
+.header img{
+  width: 100%;
+}
+
+.header {
+  margin: -10px;
+  padding: 0;
+  text-align: center;
+}
+
+
 
 /* Bow cards  */
 /* Bow cards  */
@@ -102,3 +120,34 @@ html {
 .bowPageData button{
   margin: 10px auto;
 }
+
+
+/* edit bow from */
+/* edit bow from */
+/* edit bow from */
+/* edit bow from */
+/* edit bow from */
+
+.editForm {
+  border: 1px black solid;
+}
+
+.editForm img {
+  width: 300px;
+}
+
+/* add new bow form */
+/* add new bow form */
+/* add new bow form */
+/* add new bow form */
+/* add new bow form */
+
+.addNewBowForm {
+  border: 1px black solid;
+}
+
+/* search bar */
+/* search bar */
+/* search bar */
+/* search bar */
+/* search bar */
