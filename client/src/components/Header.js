@@ -19,9 +19,14 @@ function Header(){
     return(
     <>
         <div className="header">
-            {headerLogo ? <img src={headerLogo.photo} /> : null}
-            <h1>Little Lady's Bow CO.</h1>
+                {headerLogo ? <img src={headerLogo.photo} /> : null}
         </div>
+        <div className="navbar">
+            <div className="login">
+                
+            </div>
+        </div>
+        
     </>
     )
 }

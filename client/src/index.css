@@ -5,7 +5,12 @@
 /* html */
 
 html {
-  background-color: rgb(154, 200, 230);
+  background-color: rgb(255, 197, 238);
+}
+
+body{
+  padding: 0;
+  margin: 0;
 }
 
 /* HEADERS */
@@ -15,15 +20,27 @@ html {
 /* HEADERS */
 /* HEADERS */
 
-.header img{
-  width: 100%;
-}
+
+
 
 .header {
-  margin: -10px;
-  padding: 0;
-  text-align: center;
+  width: 100%;
+  
+  background-color: rgb(252, 250, 242);
+  border-bottom: 10px rgb(95, 206, 73) solid;
 }
+
+.header img{
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+.login {
+  margin-bottom: 10px;
+}
+
+
 
 
 
@@ -37,11 +54,12 @@ html {
   border: 2px black solid;
   border-radius: 5px;
   box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.4);
-  background-color: rgb(255, 240, 248);
+  background-color: rgb(252, 250, 242);
   width:250px;
   height: 300px;
   text-align: center;
   margin: 25px auto;
+  
 }
 .bowCard img {
   width: 90%;
