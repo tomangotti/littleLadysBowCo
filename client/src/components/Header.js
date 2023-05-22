@@ -23,7 +23,10 @@ function Header(){
         </div>
         <div className="navbar">
             <div className="login">
-                
+                <h4>Bows</h4>
+                <h4>About us</h4>
+                <h4>Contact</h4>
+                <h4>Account</h4>
             </div>
         </div>
         
