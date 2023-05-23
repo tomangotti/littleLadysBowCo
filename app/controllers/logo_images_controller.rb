@@ -1,4 +1,5 @@
 class LogoImagesController < ApplicationController
+    skip_before_action :authorize, only: [:latest]
 
     def show
         logo = LogoImage.find(params[:id])

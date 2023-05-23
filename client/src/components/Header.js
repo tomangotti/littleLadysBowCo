@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-
-function Header(){
+function Header({user, setUser}){
     const [headerLogo, setHeaderLogo] = useState(null)
     const [menuVis, setMenuVis] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('/logoLatest')
@@ -21,6 +23,14 @@ function Header(){
         setMenuVis(!menuVis)
     }
 
+    function handleLogin(){
+        navigate('/sign_up')
+    }
+
+    function handleLogOut(){
+
+    }
+
     return(
     <>
         <div className="header">
@@ -29,10 +39,11 @@ function Header(){
         <div className="navbar">
             <button onClick={handleMenu}>☰</button>
             <button id="cartEmoji">🛒</button>
-            <div className={`menu ${menuVis ? "" : "collapsed"}`}>
-                <h4>- Bows</h4>
-                <h4>- About us</h4>
-                <h4>- Contact</h4>
+            <div className={menuVis ? "menu" : "hidden"}>
+                <NavLink to='/'><h4>- Bows</h4></NavLink>
+                <NavLink to='/about_us'><h4>- About us</h4></NavLink>
+                <NavLink to='/contact'><h4>- Contact</h4></NavLink>
+                {user ? <h4 onClick={handleLogOut}>- Log out</h4> : <h4 onClick={handleLogin}>- Login/Sign up</h4>}
                 <h4>- Account</h4>
             </div>
         </div>

@@ -38,7 +38,7 @@ body{
 .navbar {
   padding: 0px 0px;
   color: rgb(248, 248, 241);
-  background-color: rgb(95, 206, 73);
+  background-color: rgb(236, 188, 245);
 }
 
 .navbar h4{
@@ -46,38 +46,33 @@ body{
 }
 
 .navbar button{
-  background-color: rgb(95, 206, 73);
-  border: solid rgb(95, 206, 73) 1px;
+  background-color: rgb(236, 188, 245);
+  border: solid rgb(236, 188, 245) 1px;
   font-size: 16px;
   padding-left: 7px;
   margin: 0;
 }
 
 #cartEmoji{
-  background-color: rgb(248, 248, 241);
+  background-color: rgb(236, 188, 245);
   font-size: 16px;
   padding-left: 7px;
   margin: 0;
   float: right;
 }
 
-.menu h4{
+.navbar .menu h4{
   padding: 3px;
 }
-.menu {
+.navbar .menu {
   padding-bottom: 0px;
-  background-color: rgb(95, 206, 73);
-  max-height: 20em;
-  transition: max-height 0.7s ease;
+  background-color: rgb(236, 188, 245);
 }
 
-.menu.collapsed {
-  max-height:0em; /* Same as initial height */
+.navbar .hidden {
+  display: none;
 }
 
-.menu h4 {
-  margin: 0em 1.2em; /* Remove default margin for the paragraph */
-}
 
 
 
@@ -210,3 +205,9 @@ body{
 /* search bar */
 /* search bar */
 
+.searchBar {
+  color: rgb(248, 248, 241);
+  text-align: center;
+  margin: 0px;
+  background-color: rgb(236, 188, 245);
+}
