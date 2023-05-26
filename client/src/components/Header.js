@@ -24,10 +24,12 @@ function Header({user, setUser}){
     }
 
     function handleLogin(){
+        setMenuVis(!menuVis)
         navigate('/sign_up')
     }
 
     function handleLogOut(){
+        setMenuVis(!menuVis)
         fetch('/logout', {
             method: "DELETE"
         })
@@ -44,11 +46,11 @@ function Header({user, setUser}){
             <button onClick={handleMenu}>☰</button>
             <button id="cartEmoji" style={user ? {backgroundColor: "rgb(104, 247, 123)"} : null}>🛒</button>
             <div className={menuVis ? "menu" : "hidden"}>
-                <NavLink to='/'><h4>- Bows</h4></NavLink>
-                <NavLink to='/about_us'><h4>- About us</h4></NavLink>
-                <NavLink to='/contact'><h4>- Contact</h4></NavLink>
+                <NavLink to='/'><h4 onClick={handleMenu}>- Bows</h4></NavLink>
+                <NavLink to='/about_us'><h4 onClick={handleMenu}>- About us</h4></NavLink>
+                <NavLink to='/contact'><h4 onClick={handleMenu}>- Contact</h4></NavLink>
                 {user ? <h4 onClick={handleLogOut}>- Log out</h4> : <h4 onClick={handleLogin}>- Login/Sign up</h4>}
-                <NavLink to='/account'><h4>- Account</h4></NavLink>
+                <NavLink to='/account'><h4 onClick={handleMenu}>- Account</h4></NavLink>
             </div>
         </div>
         
