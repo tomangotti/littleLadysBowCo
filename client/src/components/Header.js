@@ -28,7 +28,11 @@ function Header({user, setUser}){
     }
 
     function handleLogOut(){
-
+        fetch('/logout', {
+            method: "DELETE"
+        })
+        .then(setUser(null))
+        .then(navigate('/sign_up'))
     }
 
     return(

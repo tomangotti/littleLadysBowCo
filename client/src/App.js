@@ -13,7 +13,7 @@ import SignUp from "./components/SignUp";
 function App() {
   const [user, setUser] = useState(null)
   useEffect(() => {
-    fetch('/show_me')
+    fetch('/me')
     .then((r) =>{
       if(r.ok){
         r.json().then((data) => {
@@ -33,7 +33,7 @@ function App() {
         <Route path='/bows/:id' element={<BowPage />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/sign_up' element={<SignUp />} />
+        <Route path='/sign_up' element={<SignUp user={user} setUser={setUser} />} />
       </Routes>
     </HashRouter>
   );

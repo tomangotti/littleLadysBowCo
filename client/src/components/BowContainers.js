@@ -49,15 +49,15 @@ function BowContainer(){
         }
     })
 
-    const bowList = filteredBowList.map((bow) => {
+    const bowList = filteredBowList.map((bow, index) => {
         if(bow.quantity > 0){
-            return <BowCard key={bow.id} bow={bow}/>;
+            return <BowCard key={index} bow={bow}/>;
         }
             })
 
-    const outOfStockList = filteredBowList.map((bow) => {
+    const outOfStockList = filteredBowList.map((bow, index) => {
         if(bow.quantity === 0){
-            return <BowCard key={bow.id} bow={bow} />
+            return <BowCard key={index} bow={bow} />
         }
     })
 
@@ -69,8 +69,8 @@ function BowContainer(){
         }
     })
 
-    const optionList = styleOptions.map((style) => {
-        return <option value={style}>{style}</option>
+    const optionList = styleOptions.map((style, index) => {
+        return <option key={index} value={style}>{style}</option>
     })
 
     function handleStyle(e){
