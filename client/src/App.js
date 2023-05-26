@@ -9,6 +9,7 @@ import BowPage from "./components/BowPage";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import SignUp from "./components/SignUp";
+import Account from "./components/Account";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -34,6 +35,7 @@ function App() {
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/sign_up' element={<SignUp user={user} setUser={setUser} />} />
+        <Route path='/account' element={<Account user={user} setUser={setUser} />} />
       </Routes>
     </HashRouter>
   );
