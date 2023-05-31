@@ -22,7 +22,7 @@ function AdminLogin({setAdmin, admin}){
             if(r.ok){
                 r.json().then((data) => {
                     setAdmin(data)
-                    navigate('/admin_page')
+                    navigate('/admin_page/editBows')
                 })
             }
         })

@@ -31,7 +31,7 @@ function UpdateLogoImage(){
         <form onSubmit={handleNewLogo}>
             <label>Logo Image: </label>
             <input type="file" onChange={(e) => setLogo(e.target.files[0])} accept="photo/*" placeholder="Photo" className="file-input file-input-bordered w-full max-w-xs" name="photo"/><br></br>
-            <button>Add New Bow</button>
+            <button>Update Logo</button>
         </form>
     </div>)
 }

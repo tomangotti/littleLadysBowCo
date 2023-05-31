@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create, :show_me]
 
     def create
         admin = Admin.create!(admin_params)
@@ -8,13 +8,7 @@ class AdminsController < ApplicationController
     end
 
     def show_me
-        admin = admin.find_by(id: session[:admin_id])
-        render json: admin
-    end
-
-    def update
-        admin = admin.find(params[:id])
-        admin.update(admin_params)
+        admin = Admin.find_by(id: session[:admin_id])
         render json: admin
     end
 

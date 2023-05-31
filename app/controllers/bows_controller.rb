@@ -1,5 +1,5 @@
 class BowsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :show]
+    skip_before_action :authorize, only: [:index, :show, :update, :create]
     def index
         bows = Bow.all
         render json: bows, status: :ok
@@ -11,16 +11,20 @@ class BowsController < ApplicationController
     end
 
     def create
-        newBow = Bow.create!(params_bows)
-        render json: newBow, status: :created
+        if session.include? :admin_id
+            newBow = Bow.create!(params_bows)
+            render json: newBow, status: :created
+        end
     end
 
     def update
-        bow = Bow.find(params[:id])
-        if bow.update(params_bows)
-            render json: bow, status: :accepted
-        else
-            render json: bow.errors, status: :unprocessable_entity
+        if session.include? :admin_id
+            bow = Bow.find(params[:id])
+            if bow.update(params_bows)
+                render json: bow, status: :accepted
+            else
+                render json: bow.errors, status: :unprocessable_entity
+            end
         end
     end
 

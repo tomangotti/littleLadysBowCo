@@ -41,7 +41,7 @@ function App() {
       <Header user={user} setUser={setUser} />
     
       <Routes>
-        <Route path="/admin_page" element={<AdminPage admin={admin} setAdmin={setAdmin} />} />
+        <Route path="/admin_page/*" element={<AdminPage admin={admin} setAdmin={setAdmin} />} />
         <Route path="/admin_login" element={<AdminLogin admin={admin} setAdmin={setAdmin} />} />
         <Route exact path="/" element={<BowContainer />} />
         <Route path='/bows/:id' element={<BowPage />} />

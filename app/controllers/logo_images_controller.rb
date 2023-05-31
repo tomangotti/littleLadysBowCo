@@ -12,16 +12,20 @@ class LogoImagesController < ApplicationController
     end
 
     def create
-        newLogo = LogoImage.create!(logo_params)
-        render json: newLogo, status: :created
+        if session.include? :admin_id
+            newLogo = LogoImage.create!(logo_params)
+            render json: newLogo, status: :created
+        end
     end
 
     def update
-        logo = LogoImage.find(params[:id])
-        if logo.update(logo_params)
-            render json: logo, status: :accepted
-        else
-            render json: logo.errors, status: :unprocessable_entity
+        if session.include? :admin_id
+            logo = LogoImage.find(params[:id])
+            if logo.update(logo_params)
+                render json: logo, status: :accepted
+            else
+                render json: logo.errors, status: :unprocessable_entity
+            end
         end
     end
 
