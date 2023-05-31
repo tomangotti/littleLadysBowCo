@@ -93,11 +93,11 @@ function BowContainer(){
                 </form>
             </div>
         </div>
-        
+        <h2 id="outOfStockHeader">Available</h2>
         <div className="bowContainer">
             {bowList}
         </div>
-        <h2>Out of Stock</h2>
+        <h2 id="outOfStockHeader">Out of Stock</h2>
         <div className="outOfStock">
             {outOfStockList}
         </div>

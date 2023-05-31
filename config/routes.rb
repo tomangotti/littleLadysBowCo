@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :admins
   resources :users
   resources :logo_images
   resources :bows
@@ -7,4 +8,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post '/login', to: "sessions#create"
   get '/me', to: "users#show_me"
+  get '/admin', to: "admins#show_me"
+  post '/admin_login', to: "sessions#create_admin"
 end

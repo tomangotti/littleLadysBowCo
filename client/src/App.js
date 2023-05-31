@@ -10,15 +10,27 @@ import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import SignUp from "./components/SignUp";
 import Account from "./components/Account";
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   const [user, setUser] = useState(null)
+  const [admin, setAdmin] =useState(null)
+
   useEffect(() => {
     fetch('/me')
     .then((r) =>{
       if(r.ok){
         r.json().then((data) => {
           setUser(data)
+        })
+      }
+    })
+
+    fetch('/admin')
+    .then((r) =>{
+      if(r.ok){
+        r.json().then((data) =>{
+          setAdmin(data)
         })
       }
     })
@@ -29,7 +41,8 @@ function App() {
       <Header user={user} setUser={setUser} />
     
       <Routes>
-        <Route path="/admin_page" element={<AdminPage />} />
+        <Route path="/admin_page" element={<AdminPage admin={admin} setAdmin={setAdmin} />} />
+        <Route path="/admin_login" element={<AdminLogin admin={admin} setAdmin={setAdmin} />} />
         <Route exact path="/" element={<BowContainer />} />
         <Route path='/bows/:id' element={<BowPage />} />
         <Route path='/about_us' element={<AboutUs />} />

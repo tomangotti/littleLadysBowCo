@@ -22,10 +22,17 @@ function BowPage(){
     }
 
     const maxQuantity = []
-        
-    for(let i = 0; i < bow.quantity; i++) {
-        maxQuantity.push(<option>{i}</option>)
+    if(bow.quantity > 5){
+        for(let i = 0; i < 6; i++) {
+            maxQuantity.push(<option>{i}</option>)
+        }
+    }else{    
+        for(let i = 0; i < bow.quantity; i++) {
+            maxQuantity.push(<option>{i}</option>)
+        }
     }
+
+    
         
     
 
