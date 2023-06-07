@@ -37,6 +37,10 @@ function Header({user, setUser}){
         .then(navigate('/sign_up'))
     }
 
+    function handleCart(){
+        navigate('/cart')
+    }
+
     return(
     <>
         <div className="header">
@@ -44,7 +48,7 @@ function Header({user, setUser}){
         </div>
         <div className="navbar">
             <button onClick={handleMenu}>☰</button>
-            <button id="cartEmoji" style={user ? {backgroundColor: "rgb(104, 247, 123)"} : null}>🛒</button>
+            <button id="cartEmoji" onClick={handleCart} style={user ? {backgroundColor: "rgb(104, 247, 123)"} : null}>🛒</button>
             <div className={menuVis ? "menu" : "hidden"}>
                 <NavLink to='/'><h4 onClick={handleMenu}>- Bows</h4></NavLink>
                 <NavLink to='/about_us'><h4 onClick={handleMenu}>- About us</h4></NavLink>

@@ -11,10 +11,12 @@ import Contact from "./components/Contact";
 import SignUp from "./components/SignUp";
 import Account from "./components/Account";
 import AdminLogin from "./components/AdminLogin";
+import CartPage from "./components/CartPage";
 
 function App() {
   const [user, setUser] = useState(null)
   const [admin, setAdmin] =useState(null)
+  const [cart, setCart] = useState(null)
 
   useEffect(() => {
     fetch('/me')
@@ -22,6 +24,7 @@ function App() {
       if(r.ok){
         r.json().then((data) => {
           setUser(data)
+          getCart(data.id)
         })
       }
     })
@@ -36,6 +39,17 @@ function App() {
     })
   }, [])
 
+  function getCart(id){
+    fetch(`/cart/users/${id}`)
+    .then((r) => {
+      r.json().then((data) => {
+        console.log(data)
+        setCart(data)
+      })
+    })
+  }
+
+
   return (
     <HashRouter>
       <Header user={user} setUser={setUser} />
@@ -44,11 +58,12 @@ function App() {
         <Route path="/admin_page/*" element={<AdminPage admin={admin} setAdmin={setAdmin} />} />
         <Route path="/admin_login" element={<AdminLogin admin={admin} setAdmin={setAdmin} />} />
         <Route exact path="/" element={<BowContainer />} />
-        <Route path='/bows/:id' element={<BowPage />} />
+        <Route path='/bows/:id' element={<BowPage user={user} setUser={setUser} />} />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/sign_up' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/account' element={<Account user={user} setUser={setUser} />} />
+        <Route path='/cart' element={<CartPage user={user} cart={cart} setCart={setCart} />} />
       </Routes>
     </HashRouter>
   );

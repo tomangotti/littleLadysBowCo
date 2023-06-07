@@ -12,13 +12,21 @@ function AdminNavBar(){
         navigate('/admin_page/inventory')
     }
 
+    function handleOrders(){
+        navigate('/admin_page/orders')
+    }
+
+    function handleRequests(){
+        navigate('/admin_page/requests')
+    }
+
 
 
     return(<div>
         <button onClick={handleEditBows}>Edit Bows</button>
-        <button>Orders</button>
+        <button onClick={handleOrders}>Orders</button>
         <button onClick={handleInventory}>Inventory</button>
-        <button>Requests</button>
+        <button onClick={handleRequests}>Requests</button>
     </div>)
 }
 

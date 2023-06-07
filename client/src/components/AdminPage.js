@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom"
 import AdminNavBar from "./AdminNavBar"
 import EditBows from "./EditBows"
 import Inventory from "./Inventory"
+import Requests from "./Requests"
+import Orders from "./Orders"
 
 
 function AdminPage({admin}){
@@ -17,6 +19,8 @@ function AdminPage({admin}){
         <Routes>
             <Route path="/editBows" element={<EditBows />} />
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/orders" element={<Orders />} />
         </Routes>
         
     </>)
