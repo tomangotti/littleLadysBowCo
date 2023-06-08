@@ -249,3 +249,26 @@ body{
   color: rgb(236, 188, 245);
 }
 
+/* Cart Item */
+/* Cart Item */
+/* Cart Item */
+/* Cart Item */
+/* Cart Item */
+
+.cartItem {
+  border: black 1px solid;
+  display: flex;
+  margin: 15px 35px;
+}
+
+.cartItem form{
+  margin: auto;
+}
+
+.cartItem h4{
+  margin: auto;
+}
+
+.cartItem button{
+  margin: auto;
+}

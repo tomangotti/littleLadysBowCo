@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function BowPage({user}){
+function BowPage({user, addToCart}){
     const {id} = useParams()
     const [bow, setBow] = useState(null)
 
@@ -55,14 +55,12 @@ function BowPage({user}){
                 if(r.ok){
                     r.json().then((data) => {
                         console.log(data)
+                        addToCart(data)
                         alert("Items added to your cart.")
                     })
                 }
             })
-
-        }
-
-        
+        } 
     }
     
     

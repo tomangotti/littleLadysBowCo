@@ -49,6 +49,11 @@ function App() {
     })
   }
 
+  function addToCart(item){
+    setCart([...cart, item])
+  }
+
+ 
 
   return (
     <HashRouter>
@@ -58,12 +63,12 @@ function App() {
         <Route path="/admin_page/*" element={<AdminPage admin={admin} setAdmin={setAdmin} />} />
         <Route path="/admin_login" element={<AdminLogin admin={admin} setAdmin={setAdmin} />} />
         <Route exact path="/" element={<BowContainer />} />
-        <Route path='/bows/:id' element={<BowPage user={user} setUser={setUser} />} />} />
+        <Route path='/bows/:id' element={<BowPage user={user} setUser={setUser} addToCart={addToCart}/>} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/sign_up' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/account' element={<Account user={user} setUser={setUser} />} />
-        <Route path='/cart' element={<CartPage user={user} cart={cart} setCart={setCart} />} />
+        <Route path='/cart' element={<CartPage user={user} cart={cart} setCart={setCart}  />} />
       </Routes>
     </HashRouter>
   );

@@ -16,6 +16,18 @@ class CartsController < ApplicationController
         render json: cart
     end
 
+    def update
+        updateItem = Cart.find_by(id: params[:id])
+        updateItem.update(cart_params)
+        render json: updateItem
+    end
+
+    def destroy
+        item = Cart.find(params[:id])
+        item.destroy
+        head :no_content
+    end
+
 
 
     private
