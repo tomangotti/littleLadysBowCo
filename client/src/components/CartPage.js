@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 
 import RenderCartItemCard from "./RenderCartItemCard"
 
-function CartPage({user, cart, setCart}){
 
+function CartPage({user, cart, setCart}){
+    const navigate = useNavigate()
 
     if(user === null){
         return(<div><h1>Please log in</h1></div>)
@@ -20,7 +21,7 @@ function CartPage({user, cart, setCart}){
     }
 
     const cartItems = cart.map((item, index) => {
-        return(<RenderCartItemCard item={item} key={index} removeItem={removeItem}/>)
+        return(<RenderCartItemCard item={item} key={index} removeItem={removeItem} updateQuantity={updateQuantity} />)
     })
 
     
@@ -31,8 +32,16 @@ function CartPage({user, cart, setCart}){
         st += price
     })
 
+    function updateQuantity(updatedItem, objId){
+        const index = cart.findIndex((obj) => obj.id === objId)
+        cart[index] = updatedItem
+        console.log(cart)
+        setCart(cart)
+    }
 
-
+    function handleCheckOut(){
+        navigate('/checkout')
+    }
         
 
     return(
@@ -40,6 +49,7 @@ function CartPage({user, cart, setCart}){
         <h1>CART</h1>
         {cartItems}
         <h2>Subtotal: ${st}</h2>
+        <button onClick={handleCheckOut}>Check Out</button>
     </div>
         )
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
-function RenderCartItemCard({item, removeItem}){
+
+function RenderCartItemCard({item, removeItem, updateQuantity}){
     const navigate = useNavigate()
     const price = item.bow.price * item.quantity;
 
@@ -24,6 +25,7 @@ function RenderCartItemCard({item, removeItem}){
             if(r.ok){
                 r.json().then((data) => {
                     console.log(data)
+                    updateQuantity(data, data.id)
                 })
             }
         })

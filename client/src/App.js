@@ -12,6 +12,7 @@ import SignUp from "./components/SignUp";
 import Account from "./components/Account";
 import AdminLogin from "./components/AdminLogin";
 import CartPage from "./components/CartPage";
+import CheckOutPage from "./components/CheckOutPage";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -53,7 +54,7 @@ function App() {
     setCart([...cart, item])
   }
 
- 
+
 
   return (
     <HashRouter>
@@ -69,6 +70,7 @@ function App() {
         <Route path='/sign_up' element={<SignUp user={user} setUser={setUser} />} />
         <Route path='/account' element={<Account user={user} setUser={setUser} />} />
         <Route path='/cart' element={<CartPage user={user} cart={cart} setCart={setCart}  />} />
+        <Route path='/checkout' element={<CheckOutPage user={user} cart={cart} />} />
       </Routes>
     </HashRouter>
   );
