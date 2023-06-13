@@ -44,7 +44,6 @@ function App() {
     fetch(`/cart/users/${id}`)
     .then((r) => {
       r.json().then((data) => {
-        console.log(data)
         setCart(data)
       })
     })

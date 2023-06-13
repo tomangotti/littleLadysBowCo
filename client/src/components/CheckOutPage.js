@@ -4,6 +4,14 @@ function CheckOutPage({user, cart}){
     console.log(user)
     console.log(cart)
 
+    if(cart === null){
+        return(<h1>loading</h1>)
+    }
+
+    const orderList = cart.map((item) => {
+        return (<div><h4>{item.bow.name} -  Quantitiy: {item.quantity}  x  ${item.bow.price}  =  ${item.quantity * item.bow.price}</h4></div>)
+    })
+
     return(
     <div>
         <div>
@@ -22,10 +30,10 @@ function CheckOutPage({user, cart}){
         </div>
         <div>
             <h1>Order</h1>
-            
+            {orderList}
         </div>
 
-        
+        <button>Submit</button>
     </div>)
 }
 
