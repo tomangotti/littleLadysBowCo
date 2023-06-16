@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 
 function Header({user, setUser}){
     const [headerLogo, setHeaderLogo] = useState(null)
-    const [menuVis, setMenuVis] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -19,17 +18,12 @@ function Header({user, setUser}){
         
     }, [])
 
-    function handleMenu(){
-        setMenuVis(!menuVis)
-    }
 
     function handleLogin(){
-        setMenuVis(!menuVis)
         navigate('/sign_up')
     }
 
     function handleLogOut(){
-        setMenuVis(!menuVis)
         fetch('/logout', {
             method: "DELETE"
         })
@@ -41,23 +35,59 @@ function Header({user, setUser}){
         navigate('/cart')
     }
 
+    function handleContact(){
+        navigate('/contact')
+    }
+
+    function handleAccount(){
+        navigate('/account')
+    }
+
+    function handleHome(){
+        navigate('/')
+    }
+
     return(
     <>
-        <div className="header">
-                {headerLogo ? <img src={headerLogo.photo} /> : null}
-        </div>
-        <div className="navbar">
-            <button onClick={handleMenu}>☰</button>
-            <button id="cartEmoji" onClick={handleCart} style={user ? {backgroundColor: "rgb(104, 247, 123)"} : null}>🛒</button>
-            <div className={menuVis ? "menu" : "hidden"}>
-                <NavLink to='/'><h4 onClick={handleMenu}>- Bows</h4></NavLink>
-                <NavLink to='/about_us'><h4 onClick={handleMenu}>- About us</h4></NavLink>
-                <NavLink to='/contact'><h4 onClick={handleMenu}>- Contact</h4></NavLink>
-                {user ? <h4 onClick={handleLogOut}>- Log out</h4> : <h4 onClick={handleLogin}>- Login/Sign up</h4>}
-                <NavLink to='/account'><h4 onClick={handleMenu}>- Account</h4></NavLink>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">{headerLogo ? <img src={headerLogo.photo} /> : null}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" onClick={handleHome}>Bows</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" onClick={handleCart}>Cart 🛒</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" onClick={handleAccount}>Account</a>
+                    </li>
+                    <li class="nav-item">
+                    {user ? <a class="nav-link" onClick={handleLogOut}>Log out</a> : <a class="nav-link" onClick={handleLogin}>Login/Sign up</a>}
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Learn More
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">About us</a></li>
+                        <li><a class="dropdown-item" onClick={handleContact}>Contact</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#">Custom Orders</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                </div>
             </div>
-        </div>
-        
+        </nav>
     </>
     )
 }
